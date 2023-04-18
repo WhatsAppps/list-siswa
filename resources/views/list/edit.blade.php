@@ -33,10 +33,10 @@
                                         </svg>
                                         <span class="sr-only">Danger</span>
                                         <div>
-                                            <span class="font-medium">Pastikan persyaratan ini terpenuhi:</span>
+                                            <span class="font-medium">Pastikan persyaratan terpenuhi:</span>
                                             <ul class="mt-1.5 ml-4 list-disc list-inside">
                                                 @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
+                
                                                 @endforeach
                                             </ul>
                                         </div>
@@ -96,6 +96,14 @@
                                                             name="firstname" type="text"
                                                             value="{{ old('firstname', $siswa->firstname) }}"
                                                             placeholder="" />
+                                                            <div>
+                                                                @if ($errors->has('firstname'))
+                                                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                            class="font-medium">Oops! </span>{{ $errors->first('firstname') }}</span>
+                                                                    @enderror
+            
+                                                            </div>
+
                                                     </div>
                                                     <div class="md-200:ml-2">
                                                         <label class="block mb-2 text-sm font-bold text-gray-700">
@@ -103,18 +111,33 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="lastname" type="text" placeholder=" "
-                                                            value="{{ old('lastname', $siswa->lastname) }}" />
+                                                            name="lastname" type="text" placeholder="Nama Belakang"
+                                                            value="{{ old('lastname', $siswa->lastname) }}"/>
+                                                            <div>
+                                                                @if ($errors->has('lastname'))
+                                                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                            class="font-medium">Oops! </span>{{ $errors->first('lastname') }}</span>
+                                                                    @enderror
+            
+                                                            </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="mb-100">
                                                     <label class="block mb-2 text-sm font-bold text-gray-700">
                                                         Nama Lengkap
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="nama" type="text" placeholder=" "
-                                                        value="{{ old('nama', $siswa->nama) }}" />
+                                                        name="nama" type="text" placeholder="Nama Lengkap"
+                                                        value="{{ old('nama', $siswa->nama) }}"/>
+                                                </div>
+                                                <div>
+                                                    @if ($errors->has('nama'))
+                                                        <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                class="font-medium">Oops! </span>{{ $errors->first('nama') }}</span>
+                                                        @enderror
+
                                                 </div>
                                                 <div class="mb-100">
                                                     <label class="block mb-2 text-sm font-bold text-gray-700">
@@ -122,8 +145,15 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="email" type="email" placeholder=""
+                                                        name="email" type="email" placeholder="Email"
                                                         value="{{ old('email', $siswa->email) }}" />
+                                                        <div>
+                                                            @if ($errors->has('email'))
+                                                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                        class="font-medium">Oops! </span>{{ $errors->first('email') }}</span>
+                                                                @enderror
+        
+                                                        </div>
                                                 </div>
                                                 <div class="mb-400 md:flex md:justify-between">
                                                     <div class="mb-100 md:mr-2 md:mb-0">
@@ -132,8 +162,15 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="kelas" type="text" placeholder=""
+                                                            name="kelas" type="text" placeholder="Kelas"
                                                             value="{{ old('kelas', $siswa->kelas) }}" />
+                                                            <div>
+                                                                @if ($errors->has('kelas'))
+                                                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                            class="font-medium">Oops! </span>{{ $errors->first('kelas') }}</span>
+                                                                    @enderror
+            
+                                                            </div>
 
                                                     </div>
                                                     <div class="md:ml-2">
@@ -142,10 +179,16 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="nis" type="text"
-                                                            value="{{ old('nis', $siswa->nis) }}" placeholder="" />
-
+                                                            name="nis" type="text"    value="{{ old('nis', $siswa->nis) }}" placeholder="Nis" />
+                                                            <div>
+                                                                @if ($errors->has('nis'))
+                                                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                            class="font-medium">Oops! </span>{{ $errors->first('nis') }}</span>
+                                                                    @enderror
+            
+                                                            </div>
                                                     </div>
+                                                    
                                                 </div>
                                                 <div class="mb-100">
                                                     <label class="block mb-2 text-sm font-bold text-gray-700">
@@ -153,8 +196,15 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="jurusan" type="text" placeholder=" "
+                                                        name="jurusan" type="text" placeholder="Jurusan"
                                                         value="{{ old('jurusan', $siswa->jurusan) }}" />
+                                                        <div>
+                                                            @if ($errors->has('jurusan'))
+                                                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                        class="font-medium">Oops! </span>{{ $errors->first('jurusan') }}</span>
+                                                                @enderror
+        
+                                                        </div>
                                                 </div>
                                                 <div class="mb-4 md:flex md:justify-between">
                                                     <div class="mb-100 md:mr-2 md:mb-0">
@@ -163,8 +213,15 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="alamat" type="text" placeholder=""
-                                                            value="{{ old('alamat', $siswa->alamat) }}" />
+                                                            name="alamat" type="text" placeholder="Alamat"
+                                                            value="{{ old('alamat', $siswa->alamat) }}"/>
+                                                            <div>
+                                                                @if ($errors->has('alamat'))
+                                                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                            class="font-medium">Oops! </span>{{ $errors->first('alamat') }}</span>
+                                                                    @enderror
+            
+                                                            </div>
 
                                                     </div>
                                                     <div class="md-200:ml-2">
@@ -173,8 +230,16 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="ttl" type="date" placeholder=" "
+                                                            name="ttl" type="date"
+                                                            placeholder="Tempat Tanggal Lahir"
                                                             value="{{ old('ttl', $siswa->ttl) }}" />
+                                                            <div>
+                                                                @if ($errors->has('ttl'))
+                                                                    <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                            class="font-medium">Oops! </span>{{ $errors->first('ttl') }}</span>
+                                                                    @enderror
+            
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 <div class="mb-4">
@@ -183,23 +248,35 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="mobile" type="text" placeholder=" "
+                                                        name="mobile" type="text" placeholder="Nomor Telepon"
                                                         value="{{ old('mobile', $siswa->mobile) }}" />
+                                                        <div>
+                                                            @if ($errors->has('mobile'))
+                                                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                        class="font-medium">Oops! </span>{{ $errors->first('mobile') }}</span>
+                                                                @enderror
+        
+                                                        </div>
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="block mb-2 text-sm font-bold text-gray-700">
                                                         Gambar
                                                     </label>
-
-
-                                                    <img id="thumbnil" style="width:20%; margin-top:10px;"
-                                                        src="/images/{{ $siswa->image }}" />
-                                                    <br>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                                         name="image" type="file" accept="image/*"
                                                         onchange="showMyImage(this)" placeholder="Gambar"
                                                         value="{{ old('image', $siswa->image) }}" />
+                                                        <div>
+                                                            @if ($errors->has('image'))
+                                                                <p class="mt-2 text-sm text-red-600 dark:text-red-500"><span
+                                                                        class="font-medium">Oops! </span>{{ $errors->first('image') }}</span>
+                                                                @enderror
+
+                                                    <img id="thumbnil" style="width:20%; margin-top:10px;"
+                                                        src="/images/{{ $siswa->image }}" />
+                                                    <br>
+                                                   
                                                     <br />
 
                                                     <div class="card-footer">
