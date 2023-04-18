@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('alamat');
             $table->string('ttl');
-            $table->bigInteger('mobile')->default(0);
+            $table->string('mobile')->default(0);
             $table->string('image')->nullable();
             $table->string('slug');
             $table->timestamps();

@@ -94,8 +94,8 @@
                                                         <input
                                                             class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                                             name="firstname" type="text"
-                                                            value="{{ old('firstname') }}"
-                                                            placeholder="{{ $siswa->firstname }}" />
+                                                            value="{{ old('firstname', $siswa->firstname) }}"
+                                                            placeholder="" />
                                                     </div>
                                                     <div class="md-200:ml-2">
                                                         <label class="block mb-2 text-sm font-bold text-gray-700">
@@ -103,9 +103,8 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="lastname" type="text"
-                                                            placeholder="{{ $siswa->lastname }}"
-                                                            value="{{ old('lastname') }}" />
+                                                            name="lastname" type="text" placeholder=" "
+                                                            value="{{ old('lastname', $siswa->lastname) }}" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-100">
@@ -114,8 +113,8 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="nama" type="text" placeholder="{{ $siswa->nama }}"
-                                                        value="{{ old('nama') }}" />
+                                                        name="nama" type="text" placeholder=" "
+                                                        value="{{ old('nama', $siswa->nama) }}" />
                                                 </div>
                                                 <div class="mb-100">
                                                     <label class="block mb-2 text-sm font-bold text-gray-700">
@@ -123,8 +122,8 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="email" type="email" placeholder="{{ $siswa->email }}"
-                                                        value="{{ old('email') }}" />
+                                                        name="email" type="email" placeholder=""
+                                                        value="{{ old('email', $siswa->email) }}" />
                                                 </div>
                                                 <div class="mb-400 md:flex md:justify-between">
                                                     <div class="mb-100 md:mr-2 md:mb-0">
@@ -133,9 +132,8 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="kelas" type="text"
-                                                            placeholder="{{ $siswa->kelas }}"
-                                                            value="{{ old('kelas') }}" />
+                                                            name="kelas" type="text" placeholder=""
+                                                            value="{{ old('kelas', $siswa->kelas) }}" />
 
                                                     </div>
                                                     <div class="md:ml-2">
@@ -145,7 +143,8 @@
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                                                             name="nis" type="text"
-                                                            placeholder="{{ $siswa->nis }}" />
+                                                            value="{{ old('nis', $siswa->nis) }}" placeholder="" />
+
                                                     </div>
                                                 </div>
                                                 <div class="mb-100">
@@ -154,9 +153,8 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="jurusan" type="text"
-                                                        placeholder="{{ $siswa->jurusan }}"
-                                                        value="{{ old('jurusan') }}" />
+                                                        name="jurusan" type="text" placeholder=" "
+                                                        value="{{ old('jurusan', $siswa->jurusan) }}" />
                                                 </div>
                                                 <div class="mb-4 md:flex md:justify-between">
                                                     <div class="mb-100 md:mr-2 md:mb-0">
@@ -165,9 +163,8 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="alamat" type="text"
-                                                            placeholder="{{ $siswa->alamat }}"
-                                                            value="{{ old('alamat') }}" />
+                                                            name="alamat" type="text" placeholder=""
+                                                            value="{{ old('alamat', $siswa->alamat) }}" />
 
                                                     </div>
                                                     <div class="md-200:ml-2">
@@ -176,9 +173,8 @@
                                                         </label>
                                                         <input
                                                             class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                            name="ttl" type="date"
-                                                            placeholder="{{ $siswa->ttl }}"
-                                                            value="{{ old('ttl') }}" />
+                                                            name="ttl" type="date" placeholder=" "
+                                                            value="{{ old('ttl', $siswa->ttl) }}" />
                                                     </div>
                                                 </div>
                                                 <div class="mb-4">
@@ -187,20 +183,27 @@
                                                     </label>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="mobile" type="text"
-                                                        placeholder="{{ $siswa->mobile }}"
-                                                        value="{{ old('mobile') }}" />
+                                                        name="mobile" type="text" placeholder=" "
+                                                        value="{{ old('mobile', $siswa->mobile) }}" />
                                                 </div>
                                                 <div class="mb-4">
                                                     <label class="block mb-2 text-sm font-bold text-gray-700">
                                                         Gambar
                                                     </label>
+
+
+                                                    <img id="thumbnil" style="width:20%; margin-top:10px;"
+                                                        src="/images/{{ $siswa->image }}" />
+                                                    <br>
                                                     <input
                                                         class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                                        name="image" type="file" placeholder="Gambar"
-                                                        value="{{ old('image') }}" />
+                                                        name="image" type="file" accept="image/*"
+                                                        onchange="showMyImage(this)" placeholder="Gambar"
+                                                        value="{{ old('image', $siswa->image) }}" />
+                                                    <br />
+
                                                     <div class="card-footer">
-                                                        <button class="btn btn-primary" type="submit">Ubah</button>
+                                                        <button class="btn btn-primary" type="submit">Buat</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -208,7 +211,27 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <script>
+                                function showMyImage(fileInput) {
+                                    var files = fileInput.files;
+                                    for (var i = 0; i < files.length; i++) {
+                                        var file = files[i];
+                                        var imageType = /image.*/;
+                                        if (!file.type.match(imageType)) {
+                                            continue;
+                                        }
+                                        var img = document.getElementById("thumbnil");
+                                        img.file = file;
+                                        var reader = new FileReader();
+                                        reader.onload = (function(aImg) {
+                                            return function(e) {
+                                                aImg.src = e.target.result;
+                                            };
+                                        })(img);
+                                        reader.readAsDataURL(file);
+                                    }
+                                }
+                            </script>
 </body>
 
 </html>
