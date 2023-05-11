@@ -16,6 +16,23 @@
             <div class="main-content">
                 @yield('content')
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             @include('front.footer')
         </div>
     </div>

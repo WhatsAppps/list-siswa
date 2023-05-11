@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DetailController;
-
 use App\Http\Controllers\SiswaController;
 
 /*
@@ -16,7 +14,17 @@ use App\Http\Controllers\SiswaController;
 |
 */
 
-Route::get('/', [SiswaController::class, 'index'])->name('siswa.index');
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/register', [SiswaController::class, 'register'])->name('register');
+    Route::post('/register', [SiswaController::class, 'registerPost'])->name('register');
+    Route::get('/login', [SiswaController::class, 'login'])->name('login');
+    Route::post('/login', [SiswaController::class, 'loginPost'])->name('login');
+});
+ 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/siswa', [SiswaController::class, 'index']);
+    Route::post('/logout', [SiswaController::class, 'logout'])->name('logout');
+});
 
 Route::get('siswa', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('siswa/create', [SiswaController::class, 'create'])->name('siswa.create');

@@ -8,6 +8,10 @@ use App\Http\Requests\StoreSiswaRequest;
 use App\Http\Requests\UpdateSiswaRequest;
 use Illuminate\Support\Str;
 use App\Models\Siswa;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Session;
 class SiswaController extends Controller
 {
     /**
@@ -104,5 +108,48 @@ class SiswaController extends Controller
 
 
         return redirect('/siswa')->with('error', 'Maaf, tidak dapat menghapus ini!');
+    }
+    public function register()
+    {
+        return view('list.register');
+    }
+ 
+    public function registerPost(Request $request)
+    {
+        $user = new User();
+ 
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+ 
+        $user->save();
+ 
+        return response(view('list.login ')->with('success', 'Register successfully'));
+    }
+ 
+    public function login()
+    {
+        return view('list.login');
+    }
+ 
+    public function loginPost(Request $request)
+    {
+        $credetials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+ 
+        if (Auth::attempt($credetials)) {
+            return redirect('/siswa')->with('success', 'Login Success');
+        }
+ 
+        return back()->with('error', 'Error Email or Password');
+    }
+ 
+    public function logout()
+    {
+        Auth::logout();
+ 
+        return redirect()->route('login');
     }
 }

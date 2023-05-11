@@ -43,7 +43,7 @@
                     Nis
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Detail
+                    Opsi
                 </th>
             </tr>
         </thead>
